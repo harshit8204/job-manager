@@ -12,7 +12,7 @@
 
 **A production-style full-stack MERN application for tracking job applications — with secure JWT authentication, full CRUD, protected routes, and a clean responsive UI.**
 
-[🌐 Live Demo](#) &nbsp;·&nbsp; [📖 API Docs](#-api-reference) &nbsp;·&nbsp; [🚀 Quick Start](#-getting-started) &nbsp;·&nbsp; [🐛 Report Bug](https://github.com/harshit8204/job-manager/issues)
+[🌐 Live Demo](#)(https://harshit8204.github.io/job-manager/) &nbsp;·&nbsp; [📖 API Docs](#-api-reference) &nbsp;·&nbsp; [🚀 Quick Start](#-getting-started) &nbsp;·&nbsp; [🐛 Report Bug](https://github.com/harshit8204/job-manager/issues)
 
 </div>
 

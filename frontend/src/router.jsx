@@ -7,39 +7,44 @@ import ProtectedRoutes from './pages/ProtectedRoutes'
 import UpdateJob from './pages/UpdateJob'
 import NotFound from './pages/NotFound'
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <App />,
+    },
+    {
+      path: '/login',
+      element: <Login />,
+    },
+    {
+      path: '/signup',
+      element: <Signup />,
+    },
+    {
+      path: '/dashboard',
+      element: (
+        <ProtectedRoutes>
+          <Dashboard />
+        </ProtectedRoutes>
+      ),
+    },
+    {
+      path: '/jobs/:id/edit',
+      element: (
+        <ProtectedRoutes>
+          <UpdateJob />
+        </ProtectedRoutes>
+      ),
+    },
+    {
+      path: '*',
+      element: <NotFound />,
+    },
+  ],
   {
-    path: '/',
-    element: <App />,
-  },
-  {
-    path: '/login',
-    element: <Login />,
-  },
-  {
-    path: '/signup',
-    element: <Signup />,
-  },
-  {
-    path: '/dashboard',
-    element: (
-      <ProtectedRoutes>
-        <Dashboard />
-      </ProtectedRoutes>
-    ),
-  },
-  {
-    path: '/jobs/:id/edit',
-    element: (
-      <ProtectedRoutes>
-        <UpdateJob />
-      </ProtectedRoutes>
-    ),
-  },
-  {
-    path: '*',
-    element: <NotFound />,
-  },
-])
+    basename: import.meta.env.BASE_URL,
+  }
+)
 
 export default router

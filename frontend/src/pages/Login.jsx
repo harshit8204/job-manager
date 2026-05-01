@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import logo from '../assets/letter-j.png'
 import axios from 'axios'
 import { useState } from 'react'
+import { API_BASE_URL } from '../utils/axios'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -13,10 +14,7 @@ const Login = () => {
     const dataObj = Object.fromEntries(data)
 
     try {
-      const res = await axios.post(
-        `${import.meta.env.VITE_BACKEND}/api/v1/auth/login`,
-        dataObj
-      )
+      const res = await axios.post(`${API_BASE_URL}/api/v1/auth/login`, dataObj)
       setError(false)
       localStorage.setItem('token', res.data.token)
       navigate('/dashboard')

@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import logo from '../assets/letter-j.png'
 import axios from 'axios'
 import { useState } from 'react'
+import { API_BASE_URL } from '../utils/axios'
 
 const Signup = () => {
   const navigate = useNavigate()
@@ -14,7 +15,7 @@ const Signup = () => {
 
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_BACKEND}/api/v1/auth/register`,
+        `${API_BASE_URL}/api/v1/auth/register`,
         dataObj
       )
       setError(false)

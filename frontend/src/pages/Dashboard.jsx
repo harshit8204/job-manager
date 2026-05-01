@@ -3,6 +3,7 @@ import axiosInstance from '../utils/axios'
 import { useNavigate, Link } from 'react-router-dom'
 import logo from '../assets/letter-j.png'
 import JobCard from '../components/JobCard'
+import ThemeToggle from '../components/ThemeToggle'
 
 const Dashboard = () => {
   const navigate = useNavigate()
@@ -41,47 +42,71 @@ const Dashboard = () => {
   }, [])
 
   return (
-    <>
-      <nav className="navbar bg-dark fixed-top">
-        <div className="container">
+    <div className="app-page pb-5">
+      <nav className="navbar app-navbar fixed-top">
+        <div className="container d-flex gap-2">
           <a href="#" className="navbar-brand">
-            <img src={logo} width="40px" alt="Logo" />
+            <img className="brand-mark" src={logo} alt="Logo" />
           </a>
-          <Link to="/" className="btn btn-lg btn-danger" onClick={handleLogout}>
+          <div className="ms-auto">
+            <ThemeToggle />
+          </div>
+          <Link to="/" className="btn btn-danger px-4" onClick={handleLogout}>
             Log out
           </Link>
         </div>
       </nav>
-      <div style={{ margin: '7rem' }} className="text-center mb-5">
-        <form style={{ maxWidth: '300px', margin: 'auto' }} onSubmit={addJob}>
-          <input
-            className="form-control"
-            type="text"
-            name="company"
-            placeholder="Company"
-            required
-          />
-          <input
-            className="form-control"
-            type="text"
-            name="position"
-            placeholder="Position"
-            required
-          />
-          <div className="mt-4">
-            <button type="submit" className="btn btn-primary btn-lg w-100">
+      <main className="dashboard-shell container">
+        <div className="text-center mb-4">
+          <p className="text-primary fw-bold mb-2">Your pipeline</p>
+          <h1 className="h2 fw-bold mb-2">Track every opportunity</h1>
+          <p className="text-secondary mb-0">
+            Add roles as they appear and keep your next move visible.
+          </p>
+        </div>
+
+        <form className="surface-panel dashboard-form mb-5" onSubmit={addJob}>
+          <div className="row g-3 align-items-center">
+            <div className="col-12 col-md">
+              <input
+                className="form-control"
+                type="text"
+                name="company"
+                placeholder="Company"
+                required
+              />
+            </div>
+            <div className="col-12 col-md">
+              <input
+                className="form-control"
+                type="text"
+                name="position"
+                placeholder="Position"
+                required
+              />
+            </div>
+            <div className="col-12 col-md-auto">
+              <button type="submit" className="btn btn-primary px-5 w-100">
               Add
             </button>
+            </div>
           </div>
         </form>
-      </div>
 
-      <div className="container d-flex gap-5 flex-wrap justify-content-center">
-        {jobs.map((job) => (
-          <JobCard job={job} key={job._id} />
-        ))}
-      </div>
-    </>
+        <div className="d-flex gap-4 flex-wrap justify-content-center">
+          {jobs.length > 0 ? (
+            jobs.map((job) => <JobCard job={job} key={job._id} />)
+          ) : (
+            <div className="surface-panel text-center p-5">
+              <h2 className="h5 mb-2">No jobs yet</h2>
+              <p className="text-secondary mb-0">
+                Add your first company and position to start tracking.
+              </p>
+            </div>
+          )}
+        </div>
+      </main>
+    </div>
   )
 }
 export default Dashboard

@@ -4,15 +4,20 @@ const JobCard = ({ job }) => {
   const navigate = useNavigate()
   return (
     <div
-      className="bg-light text-center p-3 rounded-2"
-      style={{ width: '300px' }}
+      className="job-card p-4 rounded-4"
     >
-      <p>Company: {job.company}</p>
-      <p>Position: {job.position}</p>
-      <p>Status: {job.status}</p>
+      <div className="d-flex justify-content-between align-items-start gap-3 mb-3">
+        <div>
+          <p className="text-secondary small mb-1">Company</p>
+          <h3 className="h5 mb-0">{job.company}</h3>
+        </div>
+        <span className="job-status">{job.status}</span>
+      </div>
+      <p className="text-secondary small mb-1">Position</p>
+      <p className="mb-4">{job.position}</p>
       <button
         onClick={() => navigate(`/jobs/${job._id}/edit`)}
-        className="btn btn-md w-75 btn-dark"
+        className="btn btn-md w-100 btn-primary"
       >
         Edit
       </button>

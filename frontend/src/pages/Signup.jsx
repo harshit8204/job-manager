@@ -3,6 +3,7 @@ import logo from '../assets/letter-j.png'
 import axios from 'axios'
 import { useState } from 'react'
 import { API_BASE_URL } from '../utils/axios'
+import ThemeToggle from '../components/ThemeToggle'
 
 const Signup = () => {
   const navigate = useNavigate()
@@ -27,16 +28,22 @@ const Signup = () => {
     }
   }
   return (
-    <>
-      <div className="text-center mt-5">
+    <div className="auth-page">
+      <div className="container d-flex justify-content-end pt-3">
+        <ThemeToggle />
+      </div>
+      <div className="text-center mt-3">
         <form
-          style={{ maxWidth: '300px', margin: 'auto' }}
+          className="surface-panel auth-card"
           onSubmit={handleSignup}
         >
           <Link to="/">
-            <img className="mt-4" src={logo} height="72px" />
+            <img className="logo-large" src={logo} alt="Logo" />
           </Link>
-          <h1 className="mt-4 mb-3 fw-normal">Please sign up</h1>
+          <h1 className="h3 mt-4 mb-2 fw-bold">Create your workspace</h1>
+          <p className="text-secondary mb-4">
+            Start tracking applications in a cleaner dashboard.
+          </p>
           <input
             type="text"
             name="name"
@@ -49,14 +56,14 @@ const Signup = () => {
           <input
             type="email"
             name="email"
-            className="form-control"
+            className="form-control mt-3"
             placeholder="Email Address"
             required
           />
           <input
             type="password"
             name="password"
-            className="form-control"
+            className="form-control mt-3"
             placeholder="Password"
             minLength={6}
             required
@@ -76,7 +83,7 @@ const Signup = () => {
           </div>
         )}
       </div>
-    </>
+    </div>
   )
 }
 export default Signup

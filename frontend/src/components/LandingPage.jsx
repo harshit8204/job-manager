@@ -3,33 +3,36 @@ import board from '../assets/Whiteboard.png'
 
 const LandingPage = () => {
   return (
-    <div className="container d-flex min-vh-100 align-items-center justify-content-center">
-      <div className="row">
-        <div className="col-12 col-md-6 me-md-5">
-          <img className="w-100" src={board} alt="Job planning whiteboard" />
-        </div>
-        <div className="col-md-5">
-          <h1 className="display-1 text-center mt-4">JOB MANAGER</h1>
-          <p className="mt-4">
-            Take control of your workday with Job Manager - the simplest way to
-            organize, track, and prioritize your jobs. Whether you're managing
-            freelance gigs, client tasks, or team projects, our intuitive
-            dashboard helps you stay focused and never miss a deadline. Add,
-            update, and complete jobs with ease - all in one place.
-          </p>
-          <p>
-            Designed for professionals who want clarity and control, Job Manager
-            streamlines your workflow so you can focus on getting things done.
-            From job creation to progress tracking, you'll always know what's
-            next. Get started today and experience a smarter way to manage your
-            workload.
-          </p>
-          <Link to="/signup" className="btn btn-lg btn-primary d-block">
-            Get Started
-          </Link>
+    <main className="hero-section d-flex align-items-center">
+      <div className="container">
+        <div className="row align-items-center g-5">
+          <div className="col-12 col-md-6 hero-image-wrap">
+            <img
+              className="hero-image w-100"
+              src={board}
+              alt="Job planning whiteboard"
+            />
+          </div>
+          <div className="col-md-6">
+            <p className="text-primary fw-bold mb-3">Simple application tracking</p>
+            <h1 className="hero-title mt-0 mb-4">Job Manager</h1>
+            <p className="hero-copy">
+              Track companies, roles, and progress in one calm workspace. Add
+              new opportunities quickly, keep statuses visible, and return to a
+              clear dashboard whenever you need the next action.
+            </p>
+            <div className="d-flex flex-column flex-sm-row gap-3 mt-4">
+              <Link to="/signup" className="btn btn-lg btn-primary px-5">
+                Get Started
+              </Link>
+              <Link to="/login" className="btn btn-lg btn-outline-secondary px-5">
+                Log in
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </main>
   )
 }
 

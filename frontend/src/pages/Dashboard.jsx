@@ -1,3 +1,4 @@
+import AIRecommendations from '../components/AIRecommendations'
 import { useEffect, useState } from 'react'
 import axiosInstance from '../utils/axios'
 import { useNavigate, Link } from 'react-router-dom'
@@ -48,7 +49,8 @@ const Dashboard = () => {
           <a href="#" className="navbar-brand">
             <img className="brand-mark" src={logo} alt="Logo" />
           </a>
-          <div className="ms-auto">
+          <div className="ms-auto d-flex align-items-center gap-2">
+            <AIRecommendations jobs={jobs} />
             <ThemeToggle />
           </div>
           <Link to="/" className="btn btn-danger px-4" onClick={handleLogout}>
